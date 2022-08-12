@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+            color: dimgrey;
+        }
+        form{
+            border: 1px solid gray;
+            width: 20%;
+            margin: auto;
+            line-height: 3;
+            text-align: center;
+            border-radius: 20px;
+
+        }
+        #btn{
+            color: white;
+            background-color: rgb(236, 65, 34);
+            padding: 5px 20px 5px 20px;
+            border-radius: 10px;
+            border: 0;
+            cursor: pointer;
+        }
+        #btn:hover{
+          background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Payment Gateway</h1>
+    <form >
+         <input id="cardno" type="number" placeholder="Enter card number">
+         <br>
+         <input id="cvv" type="number" placeholder="Enter CVV">
+         <br>
+         <input id="date" type="month" placeholder="Enter Expiry Date">
+         <br>
+         <input id="name" type="text" placeholder="Enter Card-holder name">
+         <input id="btn" type="Submit" value="Validate your details">
+
+    </form>
+</body>
+</html>
+
+<script>
+    document.querySelector("form").addEventListener("submit", validateDetails)
+
+    function validateDetails()
+    {
+        event.preventDefault()
+
+        var card = document.querySelector("#cardno").value
+        var cvv = document.querySelector("#cvv").value
+        var date = document.querySelector("#date").value
+        var name = document.querySelector("#name").value
+        
+       var  d1 = 12345;
+       var c1= 123;
+       var d2= "january,2024"
+       var n1 = "shubham";
+        if(card ==d1 || cvv==c1 || date == d2 || name ==n1)
+        {
+            alert("details are correct");
+            alert("OTP has been sent to your registered email id");
+            window.location.href = "OTP.html"
+        }
+        else
+        {
+            alert("error")
+        }
+        // if(alert("details are correct")==true)
+        // {
+        //     window.location.href = "OTP.html"
+        // }
+        
+    }
+</script>

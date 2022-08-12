@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="index.css">
+   <script src="https://kit.fontawesome.com/5091a168cb.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <select name="theme" id="Change_theme" onchange="changeTheme()">
+        <option value="">Change_theme</option>
+        <option value="Dark">Dark</option>
+        <option value="Regular">Regular</option>
+    </select>
+    <h1>Simple Translate Application</h1>
+    <div id="container">
+        <div id="input">
+            <select name="inputLan" id="inputLan">
+                <option value="en">Eng</option>
+                <option value="hi">Hindi</option>
+                
+            </select>
+            <div>
+                <!-- <button onclick="Translate()">Translate</button> -->
+                <textarea name="input-text" id="input-text" oninput="debounce (main,2000)" placeholder="Enter text"></textarea>
+            </div> 
+        </div>
+        <i class="fa-solid fa-arrow-right-arrow-left"></i>
+        <div id="output">
+            <select name="outLan" id="outLan">
+                <option value="en">Eng</option>
+                <option value="hi">Hindi</option>
+                
+            </select>
+        </div>
+    </div>
+</body>
+</html>
+<script src="index.js"></script>

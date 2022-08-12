@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>classes</h1>
+</body>
+</html>
+
+<script>
+    class Car {
+        constructor (n, b){
+            this.name = n 
+            this.brand = b 
+        }
+    }
+      
+
+    class Sedan extends Car {
+        constructor (n,b){
+            super (n,b)
+            this.sunroof = "panaromic"
+        }
+    }
+
+
+    class ElectricSedan extends Sedan{
+        constructor(n, b, value)
+        {
+            super(n,b)
+            this.Electric = value
+        }
+    }
+
+  //Encapulation
+    let s1 = new ElectricSedan ("togor", "TATA", true)
+
+    console.log("s1:", s1)
+
+
+    class Employee {
+        constructor(n, r){
+            var name = n ;
+            var rating = r;
+        }
+        getName (){
+            return this.name 
+            
+        }
+        getrating (){
+            return this.rating 
+        }
+        setName (v1){
+            this.name = v1 
+            //this.rating = v2 
+        }
+        setrating (v2){
+            this.rating = v2 
+        }
+
+    }
+
+    let e = new Employee ()
+
+    e.setName("raj")
+    e.setrating(9)
+
+    console.log(e.getName(),e.getrating())
+    //console.log()
+      
+//Abstraction: 
+
+class Employee1 {
+        constructor(n, r){
+                this.name = n ;
+                this.rating = [];
+
+                this.learnSkill= function(skill){
+                this.skill.push(skill)
+        }
+      }
+          
+    }
+    var el  = new Employee1("raj", "coding")
+el.learnSkill("opps");
+
+confirm.log(el)
+   
+
+
+//Polymorphism 
+
+class vehicle {
+    run(){
+        console.log("vehical is running")
+    }
+}
+
+class car extends vehicle {
+    run(){
+        console.log("vehical is running")
+    }
+}
+
+class truck extends car {
+    run(){
+        console.log("vehical is running")
+    }
+}
+
+let v1 = new vehicle()
+
+
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="video.css">
+    <script src="https://kit.fontawesome.com/5091a168cb.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="navbar">
+        <div id="left">
+            <div><i class="fa-solid fa-bars"></i></div>
+            <div>
+                <div id="logo"><i class="fa-brands fa-youtube"></i></div>
+                <div>YouTube</div>
+            </div>
+        </div>
+        <div id="center">
+            <div><input type="text" id="query"></div>
+            <button id="search" onclick="searchVideos()"><img src="https://as2.ftcdn.net/v2/jpg/01/09/46/77/1000_F_109467785_eeYWH2tY4CnkDl9BtuYO6hWjk7hH0okU.jpg" alt=""></button>   
+            <i class="fa-solid fa-microphone"></i>
+        </div>
+        <div id="right">
+            <div><img src="https://slofile.com/assets/app-icon-fb8d345bc45dcb26a3369f24ab96833ac2fadf17a0645b2a0882a2772ad64d4b.png" alt=""></i></div>
+            <div><i class="fa-solid fa-ellipsis-vertical"></i></div>
+            <div class="signin"><i class="fa-regular fa-user"></i><button>SIGN IN</button></div>
+        </div>
+  </div>
+    
+        <!-- <div id="sidebar">
+            <div>
+                <div> <i class="fa-solid fa-house"></i></div>
+               
+                <p>Home</p>
+            </div>
+            <div>
+                <div><img src="https://pic.onlinewebfonts.com/svg/img_119257.png" alt=""></div>
+                
+                <p>Explore</p>
+            </div>
+            <div>
+                <div><img src="https://cdn-icons-png.flaticon.com/512/49/49706.png?w=740" alt=""></div>
+                <p>short</p>
+            </div>
+            <div>
+                <div><img src="https://cdn-icons-png.flaticon.com/512/44/44834.png?w=740" alt=""></div>
+                <p>Subscription</p>
+            </div>
+            <hr>
+            <div>
+                <div><img src="https://visualpharm.com/assets/94/Video%20Playlist-595b40b75ba036ed117d8fcf.svg" alt=""></div>
+                <p>Library</p>
+            </div>
+            <div>
+                <div><img src="https://cdn-icons-png.flaticon.com/512/1246/1246339.png?w=740" alt=""></div>
+                <p>History</p>
+            </div>
+            <div>
+                <div><img src="https://cdn-icons-png.flaticon.com/512/45/45118.png?w=740" alt=""></div>
+                <p>Watch later</p>
+            </div>
+            <div>
+                <div><img src="https://cdn-icons-png.flaticon.com/512/1246/1246225.png?w=740" alt=""></div>
+                <p>Liked videos</p>
+            </div>
+            <hr>
+            <p>SUBSCRIPTIONS</p>
+            <div>
+                 <div><img src="https://yt3.ggpht.com/ytc/AKedOLSnclAJgahAg40LZXVWBIR3l6qGQd9JPFARGwo5_A=s176-c-k-c0x00ffffff-no-rj" alt=""></div>
+                <p>Small Town Rider</p>
+            </div>
+            <div>
+                <div> <img src="https://image3.mouthshut.com/images/imagesp/925892714s.png" alt=""></div>
+                <p>Study iq</p>
+            </div>
+            <div>
+                <div><img src="https://cdn-icons-png.flaticon.com/512/1250/1250544.png?w=740" alt=""></div>
+                <p>Browse channels</p>
+            </div>
+            <hr>
+            <p>EXPLORE</p>
+            <div>
+                <div><img src="https://cdn-icons-png.flaticon.com/512/1246/1246253.png?w=740" alt=""></div>
+                <P>Movies</P>
+            </div>
+            <div>
+                <div><img src="https://as1.ftcdn.net/v2/jpg/03/36/91/60/1000_F_336916047_LZNOa2H83j76BAnLYhAkDxz6neR9PQpa.jpg" alt=""></div>
+                <p>Gaming</p>
+            </div>
+            <div>
+                <div><i class="fa-solid fa-tower-broadcast"></i></div>
+                
+                <p>Live</p>
+            </div>
+            <div>
+                <div> <i class="fa-solid fa-vest-patches"></i></div>
+                <p>Fashion & Beauty</p>
+            </div>
+            <div>
+                <div><i class="fa-solid fa-trophy"></i></div>
+                <p>Sports</p>
+            </div>
+            <hr>
+            <p>MORE FROM YOUTUBE</p>
+            <div>
+                <P>Creator Studio</P>
+            </div>
+        </div> -->
+        <!-- <div id="box">
+            <div></div> -->
+            <div id="show"></div>
+        
+    
+</body>
+</html>
+<script>
+
+document.querySelector("#show").innerHTML = null
+    let play = JSON.parse(localStorage.getItem("video"))
+
+    console.log(play)
+
+    let div = document.createElement("div")
+    let iframe = document.createElement("iframe")
+        iframe.src = `https://www.youtube.com/embed/${play.videoId}`
+        iframe.width = "100%"
+        iframe.height = "70%" 
+        iframe.allow = "fullscreen"
+
+    let name = document.createElement("h3")
+    name.innerText = play.title 
+
+    div.append(iframe,name)
+
+    document.querySelector("#show").append(div)
+
+
+</script>

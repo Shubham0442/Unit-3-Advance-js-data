@@ -1,0 +1,32 @@
+#navbar{
+    height: 40px;
+    width: 100%;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+#navbar>div{
+    margin-right: 20px;
+}
+
+#items{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: auto;
+    margin: auto;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#items>div{
+    height: 300px;
+    border: 1px solid red;
+    text-align: center;
+}
+
+#items>div>img{
+    width: 60%;
+    height: 60%;
+}

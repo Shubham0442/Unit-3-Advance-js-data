@@ -1,0 +1,83 @@
+#navbar{
+    display: flex;
+    justify-content: end;
+    border: 2px solid black;
+    height: 40px;
+    align-items: center;
+}
+#navbar div{
+    padding-right: 40px;
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+#slideshow{
+    width: 95%;
+    height: 650px;
+    margin: auto;
+    text-align: center;
+}
+#slideshow>img{
+    width: 95%;
+    height: 650px;
+}
+
+
+#movies{
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: auto;
+    gap: 30px;
+    width: 70%;
+    margin-top: 30px;
+}
+
+#movies>div{
+   text-align: center;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+#movies>div>img{
+    height: 400px;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+#movies>div>div{
+    display:  flex;
+    text-align: center;
+}
+
+#movies>div>img+p{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#sort-buttons{
+    margin-top:10px;
+    margin-left: 70px;
+}
+
+
+
+#sort-buttons>button{
+    color: white;
+    background-color: red;
+    font-weight: bold;
+    border: 0;
+    border-radius: 4px;
+    padding: 5px 10px 5px 10px;
+    
+}
+
+#sort-buttons>button:hover{
+    cursor: pointer;
+    background-color: brown;
+}

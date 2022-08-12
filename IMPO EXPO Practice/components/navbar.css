@@ -1,0 +1,14 @@
+#navbar{
+    display: flex;
+    width: 98%;
+    height: 50px;
+    justify-content: space-between;
+    border: 1px solid teal;
+    margin: auto;
+}
+
+#option{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+}

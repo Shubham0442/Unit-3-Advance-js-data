@@ -1,0 +1,56 @@
+#navbar{
+    display: flex;
+    justify-content: end;
+    border: 2px solid black;
+    height: 40px;
+    align-items: center;
+}
+#navbar div{
+    padding-right: 40px;
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+
+
+
+#signup-form-div h2{
+    text-align: center;
+    margin-bottom: 40px;
+
+
+}
+#signup-form-div{
+    padding: 10px 70px 30px 70px;
+    margin: auto;
+    margin-top: 40px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 15%;
+    border-radius: 20px;
+}
+
+
+#signup-form-div form{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap: 2px;
+    
+}
+#submit{
+    
+    display: block;
+    text-align: center;
+    margin: auto;
+    padding: 4px 30px 4px 30px;
+    border: 0;
+    border-radius: 4px;
+    background-color: teal;
+    color: white;
+}
+
+input{
+    height: 25px;
+}

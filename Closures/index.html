@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="navbar" >
+    <div>
+        <div>
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div>
+            <img src="https://www.gizbot.com/img/2022/03/disney-plus-to-rollout-a-cheaper-plan-1646639095.jpg" alt="">
+        </div>
+        <div>TV</div>
+        <div>movies </div>
+        <div>Sorts</div>
+        <div>Disney+</div>
+        <div>KIDS</div>
+        <div>
+            <a href="trending.html" ><button id="trendingBtn">Trending</button></a>
+        </div>
+    </div>
+    <div id="RhDiv">
+        <div>
+        <input type="search" id="query" oninput="debounce(main,500)">
+        <button onclick="displayMovie()" id="searchBtn"><img src="https://icon-library.com/images/white-search-icon-png/white-search-icon-png-6.jpg" alt=""></button>
+        <div id="list"></div>
+        </div>
+        <div> 
+            <button id="sub">SUBSCRIBE</button>
+        </div>
+        <div>
+            <button id="log">LOGIN</button>
+        </div>
+    </div>
+    </div>
+    
+    <div id="showtime"></div>
+</body>
+</html>
+<script src="index.js"></script>

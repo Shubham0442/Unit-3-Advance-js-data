@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+            color: dimgrey;
+        }
+        #navbar{
+            display:flex;
+            justify-content: space-around;
+            background-color: beige;
+            padding: 10px;        
+        }
+        #navbar>div>a:hover{
+            color: rgb(238, 163, 163);
+        }
+    
+        #navbar>div{
+            
+            cursor: pointer;
+        }
+        form{
+            line-height: 3;
+            border: 1px solid brown;
+            text-align: center;
+            width: 20%;
+            margin: auto;
+            font-size: 20px;
+            border-radius: 20px;
+        }
+        #btn{
+            color: white;
+            background-color: rgb(236, 65, 34);
+            padding: 5px 20px 5px 20px;
+            border-radius: 10px;
+            border: 0;
+        }
+        button:hover{
+          background-color: cadetblue;
+        }
+
+        a{
+        text-decoration: none;
+        color: brown;
+        text-decoration: solid;
+        }
+       </style>
+</head>
+<body>
+    
+    <div id="navbar">
+        <div><a href="index.html">Home</a></div>
+        <div><a target="blank" href="men.html">Men</a> </div>
+        <div><a href="women.html">Women</a> </div>
+        <div><a href="signup.html">Signup</a> </div>
+        <div><a href="login.html">login</a> </div>
+    </div>
+    <h1>Signup</h1>
+    <br>
+    <form>
+        <input id="email" type="email" placeholder="enter email">
+        <br>
+        <input id="pass" type="password" placeholder="enter passward">
+        <br>
+        <input id="user" type="number" placeholder="enter mobile number">
+        <br>
+        <input type="submit" id="btn">
+    </form>
+   
+</body>
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit",mySignupFun)
+    var userData  = JSON.parse(localStorage.getItem("userCrid")) || [];
+
+     function mySignupFun()
+     {
+         event.preventDefault()
+
+         var userobj = 
+         {
+            email: document.querySelector("#email").value,
+            passward: document.querySelector("#pass").value,
+            username: document.querySelector("#user").value
+         }
+
+         console.log(userobj)
+         userData.push(userobj)
+         console.log(userData)
+
+         localStorage.setItem("userCrid",JSON.stringify(userData))
+     }
+
+</script>

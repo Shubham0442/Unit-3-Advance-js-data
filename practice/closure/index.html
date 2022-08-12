@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #query{
+            width: 200px;
+        }
+        #movies{
+            width: 200px;
+            height: 200px;
+            /* border: 1px solid; */
+            border-top: none;
+            overflow: scroll;
+        }
+        #searchRecommand:hover{
+            cursor: pointer;
+            background-color: darkgray;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hotstar</h1>
+    <div>
+        <input type="search" id="query" oninput="debounce(main,500)">
+    
+        <button onclick="DisplayMovie()">Search</button>
+        <div id="movies"></div>
+    </div>
+    <div id="Showtime"></div>
+    
+   
+
+    
+</body>
+</html>
+<script>
+
+    let moviesDiv = document.querySelector("#movies")
+
+    let id;
+    // const url = `https://www.omdbapi.com/?s=${movie}&apikey=e9c6bda2`
+   //https://www.omdbapi.com/?apikey=6a41ddca&s=om_shanti_om
+   async function searchMovies(){
+            try {
+            
+                const query = document.querySelector("#query").value 
+                
+                // let res = await fetch(`https://www.omdbapi.com/?apikey=6a41ddca&s=${query}`)
+                let res = await fetch(`https://www.omdbapi.com/?s=${query}&apikey=e9c6bda2`) 
+
+                let data = await res.json();
+
+
+                const movies = data.Search; 
+
+                return movies
+
+                
+                console.log("data",data)
+            }catch (err){
+                console.log(err)
+            }
+
+   }
+   function appendMovie(data)
+            {
+
+                // if(data === undefined)
+                // {
+                //     return false
+                // }
+                
+                    moviesDiv.innerHTML = null
+                     
+                    data.forEach(function (elem){
+
+                        let p = document.createElement("div")
+                        p.innerText = elem.Title 
+                        p.setAttribute("id", "searchRecommand")
+                        
+                        p.addEventListener("click",function (){
+                            searchRecommand(elem)
+                        })
+
+                        moviesDiv.append(p)
+
+                    })
+
+            }
+
+            function searchRecommand(elem){
+
+               document.querySelector("#query").value = elem.Title
+            }
+
+            async function main (){
+                let data = await searchMovies();
+
+                if(data === undefined)
+                {
+                    return false
+                }
+                appendMovie(data)
+
+            }
+
+            //debouncing 
+
+            function debounce (fun, delay){
+
+                if(id)
+                {
+
+                    clearTimeout(id);
+                }
+
+                id =  setTimeout(function (){
+                      fun ()
+
+                },delay)
+
+
+            }
+
+            function DisplayMovie (){
+                
+                let q = document.querySelector("#query").value 
+
+                let url = `https://www.omdbapi.com/?t=${q}&apikey=e9c6bda2`
+
+                fetch(url)
+                .then(function (res){
+                    return res.json()
+
+                })
+                .then(function (res){
+                    console.log("res",res)
+                })
+                .catch(function(err){
+                    console.log("err",err)
+                })
+
+             function Showtime (data)
+             {
+                 let posterDiv = document.createElement("div")
+
+                 let image = document.createElement("img")
+                 image.src = data.Poster
+             }
+
+            }
+
+            
+            
+
+            
+
+
+</script>

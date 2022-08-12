@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #member-1{
+            height: 50px;
+            width: 50px;
+            border: 1px solid white;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            margin: auto;
+            color: beige;
+            font-weight: bold;
+        }
+        #member-2{
+            height: 50px;
+            width: 50px;
+            border: 1px solid white;
+            color: beige;
+            font-weight: bold;
+            text-align: center;
+            align-items: center;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+        }
+        #member-3{
+            height: 50px;
+            width: 50px;
+            border: 1px solid white;
+            display: flex;
+            justify-content: center;
+            color: beige;
+            font-weight: bold;
+            text-align: center;
+            align-items: center;
+            margin: auto;
+        }
+        button{
+            display: block;
+            margin: auto;
+        }
+        #winner{
+            margin: auto;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <div id="winner"></div>
+        <div id="member-1">
+            
+        </div>
+        <div id="member-2">
+            
+        </div>
+        <div id="member-3">
+            
+        </div>
+        
+        <button onclick ="roll()">ROLL THE DICE</button>
+    </div>
+    
+
+</body>
+</html>
+<script>
+      
+  
+      
+    
+
+      
+      function roll ()
+        {
+                
+                    var min = 1;
+                    var max = 7;
+
+                    let winner = document.querySelector("#winner")
+                    
+                    
+                    var first = document.querySelector("#member-1")
+                    first.textContent = Math.floor(Math.random() * (max - min) + min);
+                    
+                    var second = document.querySelector("#member-2")
+                    second.textContent = Math.floor(Math.random() * (max - min) + min);
+                        
+                    
+                    var third = document.querySelector("#member-3")
+                    third.textContent = Math.floor(Math.random() * (max - min) + min);
+            
+
+
+                    if(third.textContent > first.textContent && third.textContent > second.textContent && first.textContent > second.textContent)
+                    {
+                       winner.textContent = "Third one is winner"
+                       document.querySelector("#member-1").style.background = "yellow";
+                       document.querySelector("#member-2").style.background = "red";
+                       document.querySelector("#member-3").style.background = "green";
+                       
+                    }
+                    else if(third.textContent > first.textContent && third.textContent > second.textContent && first.textContent < second.textContent)
+                    {
+                       winner.textContent = "Third one is winner"
+                       document.querySelector("#member-1").style.background = "red";
+                       document.querySelector("#member-2").style.background = "yellow";
+                       document.querySelector("#member-3").style.background = "green";
+                       
+                    }
+                    else if(second.textContent > first.textContent && third.textContent < second.textContent && third.textContent > first.textContent)
+                    {
+                        winner.textContent = "Second one is winner"
+                        document.querySelector("#member-1").style.background = "red";
+                       document.querySelector("#member-2").style.background = "green";
+                       document.querySelector("#member-3").style.background = "yellow";
+                       
+                    }
+                    else if(second.textContent > first.textContent && third.textContent < second.textContent && third.textContent < first.textContent)
+                    {
+                        winner.textContent = "Second one is winner"
+                        document.querySelector("#member-1").style.background = "yellow";
+                        document.querySelector("#member-1").style.background = "yellow";
+                       document.querySelector("#member-2").style.background = "green";
+                       document.querySelector("#member-3").style.background = "red";
+                       
+                    }
+                    else if(second.textContent < first.textContent && third.textContent < first.textContent && second.textContent > third.textContent)
+                    {
+                        winner.textContent = "First one is winner"
+                        document.querySelector("#member-1").style.background = "green";
+                       document.querySelector("#member-2").style.background = "yellow";
+                       document.querySelector("#member-3").style.background = "red";
+                    }
+                    else if(second.textContent < first.textContent && third.textContent < first.textContent && second.textContent < third.textContent)
+                    {
+                        winner.textContent = "First one is winner"
+                        document.querySelector("#member-1").style.background = "green";
+                       document.querySelector("#member-2").style.background = "red";
+                       document.querySelector("#member-3").style.background = "yellow";
+                    }
+                    
+                    else if(second.textContent === first.textContent && first.textContent > third.textContent)
+                    {
+                        winner.textContent = "Can not generate Result"
+                        document.querySelector("#member-1").style.background = "blue";
+                       document.querySelector("#member-2").style.background = "blue";
+                       document.querySelector("#member-3").style.background = "red";
+
+                    }
+                    else if(second.textContent === first.textContent && first.textContent < third.textContent)
+                    {
+                        winner.textContent = "Third one is winner"
+                        document.querySelector("#member-1").style.background = "blue";
+                       document.querySelector("#member-2").style.background = "blue";
+                       document.querySelector("#member-3").style.background = "green";
+
+                    }
+                    else if(third.textContent === first.textContent && first.textContent > second.textContent)
+                    {
+                        winner.textContent = "Can not generate Result"
+                        document.querySelector("#member-1").style.background = "blue";
+                       document.querySelector("#member-2").style.background = "red";
+                       document.querySelector("#member-3").style.background = "blue";
+                    }
+                    else if(third.textContent === first.textContent && first.textContent < second.textContent)
+                    {
+                        winner.textContent = "Second one is winner"
+                        document.querySelector("#member-1").style.background = "blue";
+                       document.querySelector("#member-2").style.background = "green";
+                       document.querySelector("#member-3").style.background = "blue";
+                    }
+                    else if(third.textContent === second.textContent && second.textContent > first.textContent)
+                    {
+                        winner.textContent = "Can not generate Result"
+                       document.querySelector("#member-1").style.background = "red";
+                       document.querySelector("#member-2").style.background = "blue";
+                       document.querySelector("#member-3").style.background = "blue";
+
+                    }
+                    else if(third.textContent === second.textContent && second.textContent < first.textContent)
+                    {
+                        winner.textContent = "First one is winner"
+                       document.querySelector("#member-1").style.background = "green";
+                       document.querySelector("#member-2").style.background = "blue";
+                       document.querySelector("#member-3").style.background = "blue";
+
+                    }
+                    else if(third.textContent === second.textContent && second.textContent === first.textContent && third.textContent === first.textContent)
+                    {
+                        winner.textContent = "Tie"
+                       document.querySelector("#member-1").style.background = "blue";
+                       document.querySelector("#member-2").style.background = "blue";
+                       document.querySelector("#member-3").style.background = "blue";
+
+                    }
+
+
+      }
+
+      
+
+
+
+
+    
+
+</script>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #navbar{
+            display:flex;
+            justify-content: space-around;
+            background-color: beige;
+            padding: 10px;        
+        }
+        #navbar>div:hover{
+            color: rgb(218, 24, 24);
+        }
+    
+        #navbar>div{
+            
+            cursor: pointer;
+        }
+         #container{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 15px;
+        }
+
+        #container>div{
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            font-family: sans-serif;
+            padding-left: 10px;
+            padding-bottom: 20px;
+            border-radius: 20px;
+        }
+        button{
+            color: white;
+            background-color: rgb(236, 65, 34);
+            padding: 5px 20px 5px 20px;
+            border-radius: 10px;
+            border: 0;
+            cursor: pointer;;
+        }
+
+        #total{
+             color: #704444;
+            font-size: 15px;
+            
+        }
+        button:hover{
+          background-color: cadetblue;
+        }
+        h4{
+            color: green;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        #discount{
+            text-align: center;
+            border: 0.5px solid gray;
+            width: 30%;
+            border-radius: 20px;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+        #redirect{
+            background-color: brown;
+        }
+        #redirect:hover{
+            background-color: green;
+        }
+        h1{
+            text-align: center;
+            color: dimgrey;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="navbar">
+        <div><a href="index.html">Home</a></div>
+        <div><a target="blank" href="men.html">Men</a> </div>
+        <div><a href="women.html">Women</a> </div>
+        <div><a href="signup.html">Signup</a> </div>
+        <div><a href="login.html">login</a> </div>
+    </div>
+    <h1>Cart page</h1>
+    <div id="discount">
+        <p class="length"></p>
+        <p id="total"></p>
+        <input id="applyCode" type="text" placeholder="Apply Promo code here">
+        <button id="promo">Apply</button>
+        <h4></h4>
+        <button id="redirect" >Proceed to Payment</button>
+    </div>
+    
+    <div id="container"></div>
+
+</body>
+</html>
+
+<script>
+    var cartData = JSON.parse(localStorage.getItem("cart"))
+    console.log(cartData);
+
+    var total = cartData.reduce(function (sum,elem,index,arr){
+        return sum + Number(elem.price);
+    },0)
+
+    var length = cartData.length;
+    // console.log(length)
+    
+    document.querySelector(".length").innerText = `Total items in your cart: ${length}`
+
+    document.querySelector("#total").innerText = `Total is Rs. ${total}`
+    // console.log(total)
+
+    document.querySelector("#promo").addEventListener("click", muPromo)
+
+    // apply-promo-code
+    function muPromo()
+    {
+        if(document.querySelector("#applyCode").value= "masai30")
+        {
+            total = Number(total - (total*30/100));
+            
+        }
+        console.log(total);
+        document.querySelector("h4").innerText = `Total price you need to pay is only: Rs. ${total}`
+    }
+
+
+   document.querySelector("#redirect").addEventListener("click", redirect)
+   function redirect()
+   {
+       window.location.href = "payment.html"
+   }
+
+
+
+
+
+    cartData.map(function (elem,index){
+
+        var box = document.createElement("div");
+
+        var img = document.createElement("img")
+        img.src = elem.image_url;
+
+        var name = document.createElement("h5")
+        name.textContent = elem.name;
+
+        var price = document.createElement("p")
+        price.textContent = elem.price;
+
+        var strikedoffprice = document.createElement("p")
+        strikedoffprice.textContent = elem.strikedoffprice;
+
+        var btn = document.createElement("button");
+        btn.innerText = "Remove from cart";
+        btn.addEventListener("click", function (){
+            removeItem(elem,index)
+        } )
+
+
+        box.append(img,name,price,strikedoffprice,btn)
+
+        document.querySelector("#container").append(box);
+    })
+    function removeItem (elem,index){
+           cartData.splice(index,1)
+           localStorage.setItem("cart",JSON.stringify(cartData))
+           window.location.reload()
+    }
+
+
+</script>

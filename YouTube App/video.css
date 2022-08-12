@@ -1,0 +1,173 @@
+
+
+/* #show >div {
+    height: 350px;
+} */
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    
+}
+
+#navbar div{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-left:10px;
+    font-size: 20px;
+}
+
+#right{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-right:10px;
+    font-size: 20px;
+
+}
+
+#query{
+    height: 32px;
+    width: 500px;
+}
+
+
+
+.fa-brands{
+    color: red;
+    font-size: 27px;
+}
+
+#logo+div{
+    font-family: Oswald;
+    font-size: 20px;
+}
+
+#right>div{
+    font-size: 20px;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+#right img{
+    height: 20px;
+    width: 20px;
+    padding-right: 20px;
+}
+
+.signin{
+    display: flex;
+    border: 1px solid #2976da;
+    padding: 8px;
+    color:#2976da;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+
+
+.signin button{
+    border: 0;
+    background-color: white;
+    font-size: 15px;
+    color:#2976da;
+    font-weight: bold;
+}
+
+
+/* #sidebar{
+    width: 20%;
+    height: 680px;
+    /* border: 1px solid; */
+    /* overflow:scroll;
+    box-sizing: border-box; */
+    
+/* } */ 
+/* #sidebar::-webkit-scrollbar{
+    display:run-in;
+    
+} */
+
+/* #sidebar>div:hover{
+    background-color: rgb(225, 221, 221);
+    cursor: pointer;
+} */
+
+/* #sidebar div{
+    display: flex;
+    align-items: center;
+    font-family: sans-serif;
+    padding-right: 20px;
+    padding-left: 12px;
+    font-size: 15px;
+} */
+
+/* #container{
+    display: flex;
+
+} */
+
+/* #box{
+    margin: auto;
+    width: 100%;
+    font-family: sans-serif;
+} */
+/* #box>div:first-child{
+    border: 0.4px solid #e3e2e2;
+    height: 60px;
+    border-left: 0;
+    border-right: 0;
+    width: 100%;
+} */
+/* #sidebar div div img{
+    height: 20px;
+    width: 20px;
+} */
+button >img{
+    height: 25px;
+    width: 25px;
+}
+/* hr{
+    color: #f1f1f1;
+    font-size: 0.4px;
+} */
+
+
+#center>button+i{
+ margin-left: 10px;
+ font-size: 20px;
+}
+
+#right i{
+    font-size: 20px;
+    padding-right: 15px;
+}
+
+#show{
+    height:700px;
+    width: 100%;
+    margin:auto;
+    /* display: grid; */
+    /* grid-template-columns: repeat(4,1fr); */
+    /* grid-template-rows: auto;
+    gap: 20px; */
+    /* box-sizing: border-box; */
+    padding-top: 20px;
+    padding-left: 70px;
+}
+
+
+#show >div{
+   border: 0ch;
+   height: 700px;
+   width: 60%;
+}
+
+/* #sidebar>p{
+    padding-left: 15px;
+    font-family: sans-serif;
+} */

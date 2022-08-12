@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+   #showTitle{
+       width: 300px;
+       height: 300px;
+       border: 1px solid;
+   }
+
+   #query{
+    width: 300px;
+   }
+
+    </style>
+</head>
+<body>
+    <h1>Movie1</h1>
+
+    <input type="search" id="query" oninput="debounce (main, 1000)">
+    <div id="showTitle"></div>
+</body>
+</html>
+<script>
+   
+    let id     
+   
+
+        //  fetch (url)
+        //  .then(function (res){
+        //      return res.json ()
+        //  })
+        //  .then(function (res){
+        //      console.log("res", res)
+        //      myfun (res)
+        //  })
+        //  .catch(function (err){
+        //      console.log("err", err)
+        //  })
+
+
+
+       function showData ()
+       {
+
+            let q = document.querySelector("#query").value  
+            let url = `https://www.omdbapi.com/?s=${q}&apikey=e9c6bda2`
+            
+            fetch(url)
+            .then(function(res){
+                return res.json()
+            })
+            .then(function(res){
+                console.log(res)
+
+               
+               let data = res
+                console.log(data)
+
+                let data1 = data.search
+                  
+
+                mymovies (data)
+            })
+            .catch(function(err){
+                console.log(err)
+            })
+
+        //    try{
+        //             let q = document.querySelector("#query").value  
+        //             let url = `https://www.omdbapi.com/?s=${q}&apikey=e9c6bda2`
+
+        //             let res = await fetch(url)
+
+        //             let data = await res.json()
+
+        //             //console.log(data)
+
+        //             //let data1 = data.search
+        //             mymovies (data)
+
+        //    }
+        //     catch (err)
+        //     {
+        //        console.log(err)
+        //     }
+
+       }
+
+
+       function mymovies (data)
+       {
+        document.querySelector("#showTitle").innerHTML = null
+
+          let data1 = data.Search
+
+          console.log(data1)
+
+
+          data1.map(function (elem){
+
+                let div = document.createElement("div")
+                div.innerText = elem.Title
+
+                document.querySelector("#showTitle").append(div)
+          })
+           
+      }
+
+        //  function myfun (data)
+        //  {
+        //      console.log(data)
+        //  }
+
+         function main ()
+         {
+            let data = showData ()
+             if(data === undefined)
+             {
+                 return false
+             }
+
+             mymovies (data)
+
+         }
+
+         function debounce (func, delay)
+         {
+              if(id)
+              {
+                  clearTimeout(id)
+              }
+
+              id = setTimeout(function (){
+                  func()
+
+              },delay)
+         }
+
+
+</script>

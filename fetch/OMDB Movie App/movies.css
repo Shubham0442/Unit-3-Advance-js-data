@@ -1,0 +1,50 @@
+*{
+    color: white;
+    background-color: black;
+    font-family: sans-serif
+
+}
+#headbar{
+    text-align: center;
+    margin-bottom: 40px;
+
+}
+
+#container1{
+    display: flex;
+    margin: auto;
+    width: 80%;
+}
+
+#infoDiv{
+    padding-left: 20px;
+}
+#searchBar>input{
+  background-color: aliceblue;
+  color: black;
+}
+#searchBar>button{
+    background-color: red;
+    border: 0;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+  }
+
+  #searchBar>button:hover{
+      background-color: brown;
+  }
+
+  #infoDiv img{
+      border-radius: 50px;
+  } 
+  
+  #errimg{
+      text-align: center;
+      margin: auto;
+  }
+
+  #imdbDiv{
+    display: flex;
+    align-items: center;
+  }

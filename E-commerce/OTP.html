@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+            color: dimgrey;
+        }
+        div{
+            text-align: center;
+        }
+        button{
+            color: white;
+            background-color: rgb(236, 65, 34);
+            padding: 5px 20px 5px 20px;
+            border-radius: 10px;
+            border: 0;
+            cursor: pointer;
+        }
+        button:hover{
+          background-color: cadetblue;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>OTP Varification</h1>
+     <div>
+        <input id="otp" type="passward" placeholder="Enter OTP">
+        <button>Make a Payment</button>
+     </div>
+    
+</body>
+</html>
+
+<script>
+    
+    document.querySelector("button").addEventListener("click",placeFun)
+
+    function placeFun ()
+    {
+        var otp = document.querySelector("#otp").value;
+        if(otp==1234)
+        {
+            alert("Payment Successful");
+            alert("Your Order has been placed")
+            window.location.href = "index.html"
+        }
+        else{
+            alert("Wrong OTP entered");
+        }
+    }
+</script>
